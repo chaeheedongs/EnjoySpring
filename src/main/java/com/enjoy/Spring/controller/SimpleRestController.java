@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/simple/rest/v1")
+@RequestMapping("/rest/simple/v1")
 public class SimpleRestController {
 
     /**
-     *  http -v :8080/simple/rest/v1/test-call
+     *  http -v :8080/rest/simple/v1/test-call
      *  */
     @GetMapping("/test-call")
     public ResponseEntity testCall() {
@@ -21,7 +21,7 @@ public class SimpleRestController {
     }
 
     /**
-     *  http -v :8080/simple/rest/v1/test-call/{message}
+     *  http -v :8080/rest/simple/v1/test-call/{message}
      *  */
     @GetMapping("/test-call/{message}")
     public ResponseEntity testCallWithMessage(@PathVariable String message) {
