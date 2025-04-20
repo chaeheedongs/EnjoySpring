@@ -1,6 +1,6 @@
 package com.enjoy.Spring.config.converters;
 
-import com.enjoy.Spring.config.types.Device;
+import com.enjoy.Spring.config.converters.types.Device;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
