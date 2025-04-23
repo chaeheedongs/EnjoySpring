@@ -1,6 +1,5 @@
 package com.enjoy.Spring.config.filters;
 
-import com.enjoy.Spring.config.filters.filter.LoggingFilter;
 import com.enjoy.Spring.config.filters.types.UrlPattern;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
