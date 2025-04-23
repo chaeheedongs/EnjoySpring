@@ -40,6 +40,7 @@ public final class LoggingFilter implements Filter {
                                       .toString()
                                       .replaceAll("-", "")
                                       .substring(0, 9) + "]";
+        request.setAttribute("threadUUID", uuid);
 
         this.requestPrintLog(request, uuid);
         chain.doFilter(request, response);
@@ -52,7 +53,7 @@ public final class LoggingFilter implements Filter {
         final String method = httpServletRequest.getMethod();
         final String uri = httpServletRequest.getRequestURI();
 
-        log.info("### ---> {} {} {} {}", uuid, REQUEST_TAG, method, uri);
+        log.info("### --> {} {} {} {}", uuid, REQUEST_TAG, method, uri);
     }
 
     private void responsePrintLog(final ServletResponse response,
@@ -60,6 +61,6 @@ public final class LoggingFilter implements Filter {
         final HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         final HttpStatus httpStatus = HttpStatus.valueOf(httpServletResponse.getStatus());
 
-        log.info("### <--- {} {} {}", uuid, RESPONSE_TAG, httpStatus);
+        log.info("### <-- {} {} {}", uuid, RESPONSE_TAG, httpStatus);
     }
 }
