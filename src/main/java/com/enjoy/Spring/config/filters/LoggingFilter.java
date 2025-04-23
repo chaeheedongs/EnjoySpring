@@ -1,4 +1,4 @@
-package com.enjoy.Spring.config.filters.filter;
+package com.enjoy.Spring.config.filters;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
