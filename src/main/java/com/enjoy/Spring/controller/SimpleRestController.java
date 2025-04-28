@@ -1,6 +1,6 @@
 package com.enjoy.Spring.controller;
 
-import com.enjoy.Spring.service.SimpleSleepService;
+import com.enjoy.Spring.service.simple.SimpleSleepService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

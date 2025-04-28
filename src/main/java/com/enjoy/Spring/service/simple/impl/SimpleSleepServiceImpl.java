@@ -1,11 +1,11 @@
-package com.enjoy.Spring.service.impl;
+package com.enjoy.Spring.service.simple.impl;
 
 import com.enjoy.Spring.config.aspects.annotations.JoinPointAfter;
 import com.enjoy.Spring.config.aspects.annotations.JoinPointAfterReturning;
 import com.enjoy.Spring.config.aspects.annotations.JoinPointAfterThrowing;
 import com.enjoy.Spring.config.aspects.annotations.JoinPointAround;
 import com.enjoy.Spring.config.aspects.annotations.JoinPointBefore;
-import com.enjoy.Spring.service.SimpleSleepService;
+import com.enjoy.Spring.service.simple.SimpleSleepService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

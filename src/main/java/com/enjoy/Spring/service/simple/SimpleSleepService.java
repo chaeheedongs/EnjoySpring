@@ -1,4 +1,4 @@
-package com.enjoy.Spring.service;
+package com.enjoy.Spring.service.simple;
 
 public interface SimpleSleepService {
 
