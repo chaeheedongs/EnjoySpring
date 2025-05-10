@@ -1,5 +1,6 @@
 package com.enjoy.Spring.controller;
 
+import com.enjoy.Spring.config.resolvers.arguments.annotations.CustomArgumentResolverAnnotation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,5 +28,14 @@ public class SimpleRestController {
     public ResponseEntity testCallWithMessage(@PathVariable String message) {
         return ResponseEntity.status(HttpStatus.OK)
                              .body(message + " message");
+    }
+
+    /**
+     * http -v :8080/rest/simple/v1/test-call/annotation/argument-resolver?message=""
+     */
+    @GetMapping("/test-call/annotation/argument-resolver")
+    public ResponseEntity testCallWithAnnotationArgumentResolver(@CustomArgumentResolverAnnotation String message) {
+        return ResponseEntity.status(HttpStatus.OK)
+                             .body(message);
     }
 }
