@@ -5,4 +5,4 @@ spring:
 project:
   switch:
     interceptor: false
-    filter: true
+    filter: false
