@@ -31,6 +31,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         }
     }
 
+    /* ArgumentResolver를 MvcConfig(또는 web.xml)에 등록해준다. */
     @Override
     public void addArgumentResolvers(final List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(annotationArgumentResolver);
