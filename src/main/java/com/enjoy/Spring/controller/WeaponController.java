@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rest/weapon/v1")
-public class WeaponController {
+public class
+WeaponController {
 
     /**
      * Spring은 DI 진행시 타입을 기반으로 선 조회함

@@ -36,6 +36,8 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok'
 
 	implementation 'org.apache.commons:commons-lang3'
+	implementation 'org.apache.poi:poi:5.2.5'              // 기본 POI
+	implementation 'org.apache.poi:poi-ooxml:5.2.5'        // .xlsx 파일 지원
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
