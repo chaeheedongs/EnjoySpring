@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+    <h2>Apache Poi Download</h2>
+
+    <h5>엑셀 다운로드</h5>
+    <form th:action="@{/poi/download-excel}" method="post">
+        <button type="submit">엑셀 다운받기</button>
+    </form>
+</body>
+</html>
