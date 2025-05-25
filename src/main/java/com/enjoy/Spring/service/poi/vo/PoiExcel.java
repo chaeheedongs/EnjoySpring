@@ -1,4 +1,4 @@
-package com.enjoy.Spring.controller;
+package com.enjoy.Spring.service.poi.vo;
 
 import lombok.Builder;
 import lombok.Getter;
