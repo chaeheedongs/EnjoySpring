@@ -6,5 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface PoiService {
     void upload(MultipartFile file);
+    void uploadFiles(MultipartFile[] files);
     void download(HttpServletResponse response);
 }

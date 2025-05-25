@@ -43,6 +43,12 @@ public class PoiController {
         return "redirect:/poi/view/upload";
     }
 
+    @PostMapping("/upload-excels")
+    public String uploadFiles(@RequestParam MultipartFile[] files) {
+        poiService.uploadFiles(files);
+        return "redirect:/poi/view/upload";
+    }
+
     @PostMapping("/download-excel")
     public String downloadFile(HttpServletResponse response) {
         poiService.download(response);

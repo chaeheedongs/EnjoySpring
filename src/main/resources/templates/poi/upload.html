@@ -12,5 +12,10 @@
         <input type="file" name="file" accept=".xls,.xlsx"/>
         <button type="submit">업로드</button>
     </form>
+
+    <form th:action="@{/poi/upload-excels}" method="post" enctype="multipart/form-data">
+        <input type="file" name="files" accept=".xls,.xlsx" multiple/>
+        <button type="submit">업로드</button>
+    </form>
 </body>
 </html>

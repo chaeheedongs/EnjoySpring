@@ -92,6 +92,74 @@ public class PoiServiceImpl implements PoiService {
     }
 
     @Override
+    public void uploadFiles(final MultipartFile[] files) {
+        if (files == null) {
+            return;
+        }
+
+        List<PoiExcel> userExcels = new ArrayList<>();
+        InputStream inputStream = null;
+        Workbook workBook = null;
+        try {
+            for (MultipartFile file : files) {
+                final String originalFileName = file.getOriginalFilename();
+                final String fileName = file.getName();
+                final long fileSize = file.getSize();
+
+                log.info( "originalFileName = {}, fileName = {}, fileSize = {}", originalFileName, fileName, fileSize);
+
+                inputStream = file.getInputStream();
+                workBook = new XSSFWorkbook(inputStream);
+                final Sheet sheet = workBook.getSheetAt(0);
+                final int sheetSize = sheet.getLastRowNum();
+                log.info( "sheetSize = {}", sheetSize);
+
+                final Iterator<Row> rows = sheet.rowIterator();
+                while (rows.hasNext()) {
+                    final Row row = rows.next();
+                    if (row.getRowNum() == 0) {
+                        continue;
+                    }
+
+                    final PoiExcel userExcel = PoiExcel.of()
+                                                       .name(row.getCell(0)
+                                                                .getStringCellValue())
+                                                       .address(row.getCell(1)
+                                                                   .getStringCellValue())
+                                                       .etc(row.getCell(2)
+                                                               .getStringCellValue())
+                                                       .build();
+                    userExcels.add(userExcel);
+
+                    /* cell 하나 하나 확인 */
+    //                final Iterator<Cell> cells = row.cellIterator();
+    //                while (cells.hasNext()) {
+    //                    final Cell cell = cells.next();
+    //                    final String cellValue = cell.getStringCellValue();
+    //                    log.info("rowNum = {}, cellValue = {}", row.getRowNum(), cellValue);
+    //                }
+                }
+            }
+        }
+        catch (Exception e) {
+            log.error("### Poi Upload Exception: {}", e.getMessage());
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                workBook.close();
+                inputStream.close();
+            }
+            catch (Exception e) {
+                log.error("### Poi Stream Close Exception: {}", e.getMessage());
+                e.printStackTrace();
+            }
+        }
+
+        log.info("userExcels = {}", userExcels);
+    }
+
+    @Override
     public void download(HttpServletResponse response) {
         ServletOutputStream outputStream = null;
         Workbook workBook = null;
